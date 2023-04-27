@@ -1,0 +1,45 @@
+
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    AIRPORT
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    TIME 
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    ARRIVING
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    DEPARTING
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngIf="!loading">
+            <tr *ngFor="let flight of flightData" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{flight.estArrivalAirport}}
+                </th>
+                <td class="px-6 py-4">
+                    {{time | date}}
+                </td>
+                <td class="px-6 py-4">
+                    {{flight.firstSeen | date}}
+                </td>
+                <td class="px-6 py-4">
+                    {{flight.lastSeen | date}}
+                </td>
+            </tr>
+        </tbody>
+
+
+    
+        <div class="center">
+            <mat-spinner color="" *ngIf="loading"></mat-spinner>
+        </div>
+       
+
+    </table>
+</div>

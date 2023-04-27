@@ -1,0 +1,13 @@
+  <app-nav-bar *ngIf="router.url == '/dashboard'"></app-nav-bar>
+  <div class="layout">
+    <div *ngIf="router.url == '/dashboard'" class="side-nav py-1 bg-gray-100">
+      <mat-nav-list style="width: 100%;">
+        <a mat-list-item>Home</a>
+        <a mat-list-item>About</a>
+        <a mat-list-item>Contact</a>
+      </mat-nav-list>
+    </div>
+    <div [ngClass]="{'main-dash':router.url == '/dashboard'}">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
